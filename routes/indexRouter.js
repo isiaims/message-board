@@ -1,10 +1,11 @@
 import { Router } from "express";
 import getNewMessage from "../controllers/newMessageController.js";
-import messages from "../db/messages.js";
+import { getMessages } from "../db/queries.js";
 
 const indexRouter = Router();
 
-indexRouter.get("/", (req, res) => {
+indexRouter.get("/", async (req, res) => {
+  const messages = await getMessages();
   res.render("index", { title: "Mini Messageboard", messages });
 });
 
