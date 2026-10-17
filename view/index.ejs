@@ -93,10 +93,12 @@
             </div>
             <form action="/new" method="post" class="composer-form">
                 <div class="input-group">
+                    <span><%= locals.errors?.[0]?.msg ?? '' %></span>
                     <label for="user" class="input-label">Your Name</label>
                     <input type="text" name="user" id="user" class="input-field" placeholder="e.g. Amando" required autocomplete="name">
                 </div>
                 <div class="input-group">
+                    <span><%= locals.errors?.[1]?.msg ?? '' %></span>
                     <label for="message" class="input-label">Message</label>
                     <input type="text" name="message" id="message" class="input-field" placeholder="What's happening?" required autocomplete="off">
                 </div>
